@@ -18,13 +18,19 @@ struct LandmarkRow: View {
                 .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             Text(landmark.name)
             Spacer()
+            if landmark.isFavorite {
+                Image(systemName: "heart.fill").foregroundColor(.pink)
+            } else {
+                Image(systemName: "heart").foregroundColor(.pink)
+            }
         }
     }
 }
 
 struct LandmarkRow_Previews: PreviewProvider {
+    
+    static var landmarks: [Landmark] = ModelData().landmarks
     static var previews: some View {
-
         Group {
             LandmarkRow(landmark: landmarks[0])
                 .previewLayout(.fixed(width: 300, height: 70))
