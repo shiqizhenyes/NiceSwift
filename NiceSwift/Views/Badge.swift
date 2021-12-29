@@ -9,11 +9,11 @@ import SwiftUI
 
 struct Badge: View {
     
-    static let rotationCount = 8
+    static let rotationCount: Int = 8
     
     var badgeSymbols: some View {
         ForEach(0..<Badge.rotationCount) { i in
-            RotatedBadgeSymbol(angle: Angle(degrees: Double(i) / Double(Badge.rotationCount) * 360.0))
+            RotatedBadgeSymbol(angle: Angle(degrees: Double(i) / Double(Self.rotationCount) * 360.0))
         }.opacity(0.5)
     }
     
